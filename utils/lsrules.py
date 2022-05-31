@@ -5,8 +5,11 @@ import datetime
 import json
 
 def main():
+    rulesIn = [
+
+    ]
     rules = []
-    for entry in sys.stdin:
+    for entry in rulesIn:
         rules.append({
             "action": "deny",
             "direction": "outgoing",
@@ -15,10 +18,10 @@ def main():
             "remote-domains": entry.strip()
         })
 
-    desc = "Source: https://github.com/adversarialtools/apple-telemetry | Domains: {} | Updated: {}".format(len(rules), datetime.datetime.now())
+    desc = "Source: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt | Domains: {} | Updated: {}".format(len(rules), datetime.datetime.now())
     root = {
         "description": desc,
-        "name": "apple_telemetry",
+        "name": "blokada_duckduckgo_tracker_radar",
         "rules": rules
     }
 
